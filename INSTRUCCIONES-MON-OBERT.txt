@@ -1,0 +1,30 @@
+PANTALLA FOCUS — MÓN OBERT: OBSERVACIÓ
+
+CAMBIOS
+- El modo se muestra como “Món obert: Observació” en Jocs interactius.
+- Se conservan las otras secciones y los modos de juego existentes.
+- Incluye escenario de estación de metro, cinco salas, detalles variables, decisiones CAMBIOS / SIN CAMBIOS y una criatura perseguidora cuando se falla.
+- Incluye movimiento en tercera persona, controles WASD/flechas, ratón para cámara, correr, saltar, interactuar, joystick táctil, pausa y pantalla completa.
+- Three.js se descarga bajo demanda desde jsDelivr al iniciar este modo; hace falta conexión a internet.
+
+EJECUCIÓN LOCAL
+1. Instala Node.js.
+2. Abre una terminal en la carpeta del proyecto.
+3. Ejecuta: npm install
+4. Ejecuta: npm start
+5. Abre la dirección local que indique el servidor.
+
+COMPROBACIÓN DE CÓDIGO
+Ejecuta: node tests/static-check.mjs
+El chequeo estático se ha ejecutado correctamente en esta versión.
+
+ACTUALIZACIÓN DE ESTA VERSIÓN
+- El menú muestra únicamente el modo «Món obert: Observació» para esta experiencia.
+- Las cinco salas usan una distribución de estación consistente, con cambios aleatorios visibles por sala. Al acertar, la puerta se abre lateralmente y se pasa a la siguiente sala; al fallar, la puerta queda cerrada y la entidad inicia la persecución.
+- Se ha corregido el muro que tapaba la cámara entre salas, que podía hacer que la siguiente zona pareciera negra.
+- El ZIP incluye la lámina de referencia del personaje y recortes frontal, tres cuartos, lateral y trasero como material visual de referencia. El personaje jugable sigue siendo un modelo procedural de Three.js, no un modelo 3D profesional riggeado importado.
+- La pantalla completa utiliza la API Fullscreen del navegador y requiere que el navegador la permita.
+
+- Nuevo modelo: assets/asta/astablack_clover.glb (modelo 3D de Asta añadido al proyecto).
+- El juego intenta cargar el GLB con GLTFLoader y aplica colores por zonas de la geometría. Si falla la carga, conserva el personaje de respaldo.
+- Limitación comprobada del archivo recibido: el GLB tiene 6 mallas, un material genérico, no incluye imágenes/texturas, esqueleto (skins) ni clips de animación. Por eso los colores son una aproximación por zonas y el movimiento del modelo importado no tiene articulación real de brazos/piernas; para animaciones completas haría falta un modelo riggeado.
